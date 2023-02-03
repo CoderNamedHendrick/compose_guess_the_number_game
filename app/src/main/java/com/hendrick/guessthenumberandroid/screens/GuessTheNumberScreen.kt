@@ -104,14 +104,22 @@ fun GuessTheNumberScreen(modifier: Modifier = Modifier) {
 
                 Spacer(modifier = modifier.height(12.dp))
 
-                ElevatedButton(onClick = {
-                    validationError = validateStringValue(guessValue.text)
+                Button(
+                    modifier = modifier.fillMaxWidth(),
+                    onClick = {
+                        validationError = validateStringValue(guessValue.text)
 
-                    if (validationError == null) {
-                        game.submitGuess(guessValue.text.toInt())
-                        showDialog = true
-                    }
-                }) {
+                        if (validationError == null) {
+                            game.submitGuess(guessValue.text.toInt())
+                            showDialog = true
+                        }
+                    },
+                    contentPadding = PaddingValues(horizontal = 18.dp, vertical = 12.dp),
+                    colors = ButtonDefaults.elevatedButtonColors(
+                        containerColor = Color(0xFF2196F3),
+                        contentColor = Color.White,
+                    ),
+                ) {
                     Text("Submit Guess")
                 }
             }

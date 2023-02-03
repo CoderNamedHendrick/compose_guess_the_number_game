@@ -26,7 +26,7 @@ class Game private constructor(randomGuess: Int, roundScore: Int = 0, totalScore
 
     fun newGame(testValue: Int? = null) {
         roundScore = 0
-        guess = testValue ?: Random.nextInt(101)
+        guess = testValue ?: Random.nextInt(1,101)
     }
 
     fun reset(testValue: Int? = null) {
